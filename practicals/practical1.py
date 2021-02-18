@@ -16,17 +16,20 @@ import pandas as pd
 df = pd.read_csv("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python37\\sample.csv")
 df["new_column"] = ""
 df.to_csv("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python37\\sample.csv", index=False)'''
+import pyreadr
+import xlrd
+import os
+import pymysql.cursors
+from urllib.request import urlretrieve
+import urllib
 ------------------------------------------------------
 
-import pandas as pd
-df = pd.read_csv("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python37\\sample.csv")
+df = pd.read_csv(
+    "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python37\\sample.csv")
 df["new_column"] = "abc"
 df.to_csv("sample1.csv", index=False)
 --------------------------'''
-'''#importing from url
-import urllib
-from urllib.request import urlretrieve
-import pandas as pd
+'''  # importing from url
 
 url = 'http://winterolympicsmedals.com/medals.csv'
 urlretrieve(url, 'medals.csv')
@@ -35,23 +38,19 @@ df_web = pd.read_csv('medals.csv')
 print(df_web.shape)
 df_web.head()
 ---------------------------------------'''
-'''#importing from the database
-import pymysql.cursors
-import os
-#os.chdir("6.0.0-alpha-community-nt-debug")
-db=pymysql.connect("localhost","root","root","test")
+'''  # importing from the database
+# os.chdir("6.0.0-alpha-community-nt-debug")
+db = pymysql.connect("localhost", "root", "root", "test")
 print("connected")
-cursor=db.cursor()
+cursor = db.cursor()
 
 cursor.execute("select * from employee")
-data=cursor.fetchall()
+data = cursor.fetchall()
 print(data)
 db.close()
 -----------------------------------'''
-'''#reading the sheet names from an excel
-import pandas as pd
-import xlrd
-data2=pd.ExcelFile("C:\\Users\\HP\\Desktop\\first.xls")
+'''  # reading the sheet names from an excel
+data2 = pd.ExcelFile("C:\\Users\\HP\\Desktop\\first.xls")
 print(data2.sheet_names)
 -------------------------------------------------'''
 '''import pandas as pd
@@ -65,17 +64,11 @@ converted = rdata.conversion.convert(parsed)
 print(converted)
 '''--------------------------------------------
 
-#below code not working 
-#http://www.sthda.com/english/wiki/saving-data-into-r-data-format-rds-and-rdata
+# below code not working
+# http://www.sthda.com/english/wiki/saving-data-into-r-data-format-rds-and-rdata
 
-import pyreadr
-result=pyreadr.read_r("A_vector.RData")
-# done! let's see what we got , 
-print(result.keys()) # let's check what objects we got: there is only None
-df1 = result[None] # extract the pandas data frame for the only object available
-
-
-
-
-
-
+result = pyreadr.read_r("A_vector.RData")
+# done! let's see what we got ,
+print(result.keys())  # let's check what objects we got: there is only None
+# extract the pandas data frame for the only object available
+df1 = result[None]
