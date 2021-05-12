@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 from scipy.stats import pearsonr, spearmanr
 
-df = pd.read_csv("Datasets/Admission_Predict.csv")
+df = pd.read_csv("../Datasets/Admission_Predict.csv")
 gre_scores = list(df['GRE Score'])
 chance_of_admit = list(df['Chance of Admit '])
 

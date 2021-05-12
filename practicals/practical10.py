@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-df = pd.read_csv("Datasets/Admission_Predict.csv")
+df = pd.read_csv("../Datasets/Admission_Predict.csv")
 df = df.drop('Serial No.',axis=1)
 
 print(df.head())
